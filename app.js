@@ -69,11 +69,11 @@ myDeck = shuffle(myDeck);
 
 	
 	function deal(){
-
+		
 
 	}
 
-	
+
 
 	$( document ).ready(function() {
 
@@ -113,8 +113,14 @@ myDeck = shuffle(myDeck);
 		$("#reset-game").click(function(){
 			console.log("reset");
 			resetBet();
-
 		});
+
+		$("#deal-cards!").click(function(){
+			console.log("deal");
+			dealCards();
+		});
+
+		
     });
 
 
