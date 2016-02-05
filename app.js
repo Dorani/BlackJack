@@ -1,7 +1,10 @@
 var bankRoll = 1000;
 var currentBet = 0;
-var player = '';
-var dealer = '';
+// var player = '';
+// var dealer = '';
+// var theCount = 0;
+// var countsP = 0;
+// car countsD= 0;
 
 	
 
@@ -77,8 +80,28 @@ myDeck = shuffle(myDeck);
 	// }else {
 	// 	return null;
 	// }
+	// this.player = player.deal
+	// this.dealer = dealer.deal
+	// this.player = player.deal
+	// this.dealer = dealer.deal
+	// deal();
 
+	// function playerCount(){
+	// 	countsP = parseInt(player.deal.length +  player.deal.length) 
+	// 	return countsP;
+	// }
 
+	// function DealerCount(){
+	// 	countsD = parseInt(dealer.deal.length +  dealer.deal.length) 
+	// 	return countsD;
+	// }
+
+	// function calculateWinner(){
+	// 	if (countsP > countsD) || < 21
+	// 		return "Player Wins"
+	// }else {
+	// 	return 'Dealer wins'
+	// }
 
 	$( document ).ready(function() {
 
