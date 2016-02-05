@@ -1,0 +1,11 @@
+1)create a display with welcome line (done)
+2)create a bankroll line (done)
+3)create betting button with dollar increments and functionality (done)
+4)create a current bet area, which can change depending how often it is clicked. (done)
+5)create a reset button (done)
+6)create a deck (done)
+7)shuffle the deck (done)
+8)create the game function with players[1], dealing[2], total value of cards displayed for both players[3] 
+9)(hitting/standing) functions
+10)and declaring a winner or loser.
+11)updating the bankroll if won.
