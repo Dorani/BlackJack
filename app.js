@@ -1,5 +1,8 @@
 var bankRoll = 1000;
 var currentBet = 0;
+var player = '';
+var dealer = '';
+
 	
 
 
@@ -61,17 +64,19 @@ var currentBet = 0;
 		}
 		console.log(deckOfCards);
 
-
+//end of code dojo help
 
 		return shuffle(deckOfCards);
 	}
 myDeck = shuffle(myDeck);
 
 	
-	function deal(){
-		
-
-	}
+	// //function deal(){
+	// 	if (this.deckOfCards > 0)
+	// 		return this.deckOfCards.shift();
+	// }else {
+	// 	return null;
+	// }
 
 
 
