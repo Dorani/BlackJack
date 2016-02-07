@@ -1,16 +1,21 @@
 var bankRoll = 1000;
 var currentBet = 0;
-// var player = '';
-// var dealer = '';
-// var theCount = 0;
-// var countsP = 0;
-// car countsD= 0;
+var player = '';
+var dealer = '';
+var theCount = 0;
+var countsP = 0;
+var countsD= 0;
 
 	
 
 
 	function subtract(bet) {
 		console.log("At subtract");
+
+		if (bankRoll < bet){
+			alert( "Step your game up man...you are broke!");
+		}else {
+
 		
 		bankRoll = bankRoll - bet;
 		console.log(bankRoll); 
@@ -20,11 +25,8 @@ var currentBet = 0;
 		console.log(currentBet);
 		$("#bets").text(currentBet);
 
-		if (bankRoll <= 0){
-			alert( "Step your game up man...you are broke!");
+		
 		}
-
-
 
 	}
 
@@ -86,6 +88,8 @@ myDeck = shuffle(myDeck);
 	// this.dealer = dealer.deal
 	// deal();
 
+	
+
 	// function playerCount(){
 	// 	countsP = parseInt(player.deal.length +  player.deal.length) 
 	// 	return countsP;
@@ -110,33 +114,13 @@ myDeck = shuffle(myDeck);
 		$("#card").text(deck);
 
 
-			$("#betting-100").click(function() {
-  			console.log("Clicked");
-  			subtract(100);
 
+	
+		$(".betButton").click(function() {
+			var betVal = this.id.split("-");
+			subtract(parseInt(betVal[1]));
 		});
 
-
-			$("#betting-50").click(function() {
-  			console.log("Clicked");
-  			subtract(50);
-
-		});
-
-
-		$("#betting-10").click(function() {
-  			console.log("Clicked");
-  			subtract(10);
-
-		});
-
-
-
-		$("#betting-5").click(function() {
-  			console.log("Clicked");
-  			subtract(5);
-
-		});
 
 		$("#reset-game").click(function(){
 			console.log("reset");
