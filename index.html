@@ -1,78 +1,65 @@
 <!doctype html>
-
 <html lang="en">
-<head>
-  <meta charset="utf-8">
+	<head>
+		<meta charset="utf-8">
+		<title>The HTML5 Herald</title>
+		<meta name="description" content="The HTML5 Herald">
+		<meta name="author" content="SitePoint">
+		<style>
+		.pointer {
+			cursor:pointer;
+		}
+		</style>
+		
+	</head>
+	<body>
+		<div>
+			Hello player...
+			<br>
+			<div id="name"></div>
+			You will place your bets by clicking on the betting button increments. If you would like to reset your bets, please click on the 'reset button' and your bankroll will reset to $1000, and your current bet will $0. <br>Once you have placed your bets, click on the 'Deal Cards Button' and begin!
+			<br>
+			<h3>-----------------------------------------</h3>
+			<div> Bankroll: <div id="bankroll"> </div></div>
+			<h3>-----------------------------------------</h3>
+			<div id="betting-5" class="pointer betButton">
+				Bet $5
+			</div>
+			<div id="betting-10" class="pointer betButton">
+				Bet $10
+			</div>
+			<div id="betting-50" class="pointer betButton">
+				Bet $50
+			</div>
+			<div id="betting-100" class="pointer betButton">
+				Bet $100
+			</div>
+			<h3>-----------------------------------------</h3>
+			<br>
+			<div> Current Bet:<div id="bets">
+			</div></div>
+			<h3>-----------------------------------------</h3>
+			<br>
+			<br>
+			<div id="reset-game" class="pointer">
+				-Reset Button-
+			</div>
+			<div id="deal-cards" class="pointer">
+				-Deal Cards Button-
+			</div>
+			<h3>-------------------------------------------</h3>
+		</div>
+		<div> Player count: </div><div id="human-total"></div>
+		<h3>-------------------------------------------</h3>
+		<div> Dealer count: </div> <div id="dealer-total"></div>
+		<h3>-------------------------------------------</h3>
+		
+		<div id="hit-action" class="pointer">Hit</div>
 
-  <title>The HTML5 Herald</title>
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
+		<h3>-------------------------------------------</h3>
 
-<style>
-.pointer {
-	cursor:pointer;
-}
-</style>
- 
-</head>
-
-<body>
-
-<div>
-Hello player... 
-
-<br>
-
-<div id="name"></div> 
-
-
-You will place your bets by clicking on the betting button increments. If you would like to reset your bets, please click on the 'reset button' and your bankroll will reset to $1000, and your current bet will $0. <br>Once you have placed your bets, click on the 'Deal Cards Button' and begin!
-
-<br>
-<h3>-----------------------------------------</h3>
-<div> Bankroll: <div id="bankroll"> </div></div>
-
-<h3>-----------------------------------------</h3>
-<div id="betting-5" class="pointer betButton">
-Bet $5
-</div>
-
-<div id="betting-10" class="pointer betButton">
-Bet $10
-</div>
-
-<div id="betting-50" class="pointer betButton">
-Bet $50
-</div>
-
-<div id="betting-100" class="pointer betButton">
-Bet $100
-</div>
-<h3>-----------------------------------------</h3>	
-<br>
-<div> Current Bet:<div id="bets"> 
-
-</div></div>
-<h3>-----------------------------------------</h3>	
-<br>
-<br>
-<div id="reset-game" class="pointer">
--Reset Button-
-</div>
-
-<div id="deal-cards" class="pointer">
--Deal Cards Button-
-</div>
-<h3>-------------------------------------------</h3>	
-</div>
-<div> Player count: </div>
-<h3>-------------------------------------------</h3>
-<div> Dealer count: </div>
-<h3>-------------------------------------------</h3>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
- <script src="app.js"></script>  
- 
-
- </body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="app.js"></script>
+		
+	</body>
 </html>

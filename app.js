@@ -5,7 +5,7 @@ var dealer = '';
 var theCount = 0;
 var countsP = 0;
 var countsD= 0;
-
+var players = [];
 	
 
 
@@ -14,7 +14,7 @@ var countsD= 0;
 
 		if (bankRoll < bet){
 			alert( "Step your game up man...you are broke!");
-		}else {
+		} else {
 
 		
 		bankRoll = bankRoll - bet;
@@ -57,65 +57,76 @@ var countsD= 0;
 
 //code dojo help for deck
     var myDeck = 0;
+
 	function deck(){
 		this.names = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 		this.suits = ['Spade','Heart','Club','Dimond'];
 		var deckOfCards = [];
-
+		var cardValue = 0;
 		for( var s = 0; s < this.suits.length; s++ ){
 			for( var n = 0; n < this.names.length; n++){
-				deckOfCards.push( new card(n + 1, this.names[n], this.suits[s]));
+				cardValue = 0;
+				if (isNaN(this.names[n])) {
+					if (this.names[n] == "A") {
+						cardValue = 11;
+					} else {
+						cardValue = 10;
+					}
+				} else {
+					cardValue = this.names[n];
+
+				}
+				deckOfCards.push( new card(parseInt(cardValue), this.names[n], this.suits[s]));
 			}
 		}
-		console.log(deckOfCards);
 
 //end of code dojo help
 
 		return shuffle(deckOfCards);
 	}
-myDeck = shuffle(myDeck);
 
+	myDeck = deck();
 	
-	// //function deal(){
-	// 	if (this.deckOfCards > 0)
-	// 		return this.deckOfCards.shift();
-	// }else {
-	// 	return null;
-	// }
-	// this.player = player.deal
-	// this.dealer = dealer.deal
-	// this.player = player.deal
-	// this.dealer = dealer.deal
-	// deal();
+	function deal(){
+ 		return myDeck.shift();
+	}
 
 	
 
-	// function playerCount(){
-	// 	countsP = parseInt(player.deal.length +  player.deal.length) 
-	// 	return countsP;
-	// }
+	function Player(isDealer, playerName) {
+		this.hand = [];
+		this.isDealer = isDealer;
+		this.handPlayable = true;
+		this.playerName = playerName;
+		this.totalValue = 0;
 
-	// function DealerCount(){
-	// 	countsD = parseInt(dealer.deal.length +  dealer.deal.length) 
-	// 	return countsD;
-	// }
 
-	// function calculateWinner(){
-	// 	if (countsP > countsD) || < 21
-	// 		return "Player Wins"
-	// }else {
-	// 	return 'Dealer wins'
-	// }
+		this.addCard = function(card) {
+			console.log("Adding " + card.value + " which is " + card.name + " of " + card.suit + " to " + this.playerName);
+			this.hand.push(card);
+			console.log("new total is " + this.playerTotal())
+			console.log(this.hand);
+			$("#"+this.playerName+"-total").text(this.playerTotal());
+		};
+
+		this.playerTotal = function(){
+			this.totalValue = 0;
+			for(var handi = 0; handi <this.hand.length; handi++ ){
+				this.totalValue += this.hand[handi].value;
+			}
+			return this.totalValue;
+		};
+
+	}
+
 
 	$( document ).ready(function() {
 
         $("#bankroll").text(bankRoll);
 		$("#name").text("Seif");
 		$("#card").text(deck);
-
-
-
-	
+		players["human"] = new Player(false, "human");
+		players["dealer"] = new Player(true, "dealer");
 		$(".betButton").click(function() {
 			var betVal = this.id.split("-");
 			subtract(parseInt(betVal[1]));
@@ -127,13 +138,18 @@ myDeck = shuffle(myDeck);
 			resetBet();
 		});
 
-		$("#deal-cards!").click(function(){
+		$("#deal-cards").click(function(){
 			console.log("deal");
-			dealCards();
-		});
+			while(players["dealer"].hand.length < 2) {
+				console.log("Dealing");
+				players["human"].addCard(deal());
+				players["dealer"].addCard(deal());
+			}
+			
 
+		});
+		$("#hit-action").click(function() {
+			players["human"].addCard(deal());
+		});
 		
     });
-
-
- 
