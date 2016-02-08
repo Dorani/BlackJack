@@ -62,6 +62,7 @@ var players = [];
 		this.names = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 		this.suits = ['Spade','Heart','Club','Dimond'];
 		var deckOfCards = [];
+		//end of code dojo help
 		var cardValue = 0;
 		for( var s = 0; s < this.suits.length; s++ ){
 			for( var n = 0; n < this.names.length; n++){
@@ -80,7 +81,7 @@ var players = [];
 			}
 		}
 
-//end of code dojo help
+
 
 		return shuffle(deckOfCards);
 	}
