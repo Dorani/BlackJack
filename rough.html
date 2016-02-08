@@ -1,0 +1,95 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+<style>
+.pointer {
+	cursor:pointer;
+}
+</style>
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div>
+Hi <div id="name"></div> you ready?
+
+<div> Bankroll: <div id="bankroll"> </div></div>
+
+
+<div id="betting-5" class="pointer">
+Bet $5
+</div>
+
+<div> Current Bet:<div id="bets"> 
+	
+</div></div>
+
+<div id="reset-game" class="pointer">
+Reset
+</div>
+
+</div>
+  <script src="jquery.js"></script>
+
+  <script>
+	var bankRoll = 1000;
+	var currentBet = 0;
+
+
+	function subtract(bet) {
+		console.log("At subtract");
+		
+		bankRoll = bankRoll - bet;
+		console.log(bankRoll); 
+		$("#bankroll").text(bankRoll);
+
+		currentBet = currentBet + bet;
+		console.log(currentBet);
+		$("#bets").text(currentBet);
+
+
+
+	}
+
+	function resetBet(){
+		bankRoll = currentBet + bankRoll;
+		currentBet = 0;
+
+		$("#bankroll").text(bankRoll);
+
+		$("#bets").text(currentBet);
+
+	}
+
+	$( document ).ready(function() {
+
+        $("#bankroll").text(bankRoll);
+		$("#name").text("Seif");
+
+		$("#betting-5").click(function() {
+  			console.log("Clicked");
+  			subtract(5);
+
+		});
+
+		$("#reset-game").click(function(){
+			console.log("reset");
+			resetBet();
+
+		});
+    });
+
+
+ 
+  </script>
+</body>
+</html>
