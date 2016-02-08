@@ -70,7 +70,7 @@ var players = [];
 					if (this.names[n] == "A") {
 						cardValue = 11;
 					} else {
-						cardValue = 10;
+						cardValue = 2;
 					}
 				} else {
 					cardValue = this.names[n];
@@ -117,8 +117,50 @@ var players = [];
 			return this.totalValue;
 		};
 
+	 	function stand(){
+		 	if (stand === true){
+		 		return this.totalValueDealer;
+			}
+
+	 }
+
 	}
 
+	function Dealer(isDealer, playerName) {
+		this.hand = [];
+		this.isDealer = isDealer;
+		this.handPlayable = true;
+		this.playerName = playerName;
+		this.totalValueDealer = 0;
+
+
+
+		this.addCard = function(card) {
+			console.log("Adding " + card.value + " which is " + card.name + " of " + card.suit + " to " + this.isDealer);
+			this.hand.push(card);
+			console.log("new total is " + this.dealerTotal())
+			console.log(this.hand);
+			$("#"+this.playerName+"-total").text(this.dealerTotal());
+		};
+
+		this.dealerTotal = function(){
+			this.totalValue = 0;
+			for(var handi = 0; handi <this.hand.length; handi++ ){
+				this.totalValueDealer += this.hand[handi].value;
+			}
+			return this.totalValueDealer;
+		};
+
+	} 
+
+	//winner function
+	// function winner(){
+	// 	if(this.totalValue === 21){
+	// 		alert('Player Wins!');
+	// 	}else{
+	// 		alert('comp wins!');
+	// 	}
+	// } 
 
 	$( document ).ready(function() {
 
@@ -150,6 +192,10 @@ var players = [];
 		});
 		$("#hit-action").click(function() {
 			players["human"].addCard(deal());
+		});
+
+		$("#stand-action").click(function() {
+			players["dealer"].addCard(deal());
 		});
 		
     });

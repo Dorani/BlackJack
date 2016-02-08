@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<title>The HTML5 Herald</title>
-		<meta name="description" content="The HTML5 Herald">
-		<meta name="author" content="SitePoint">
 		<style>
 		.pointer {
 			cursor:pointer;
@@ -19,11 +15,11 @@
 			Hello player...
 			<br>
 			<div id="name"></div>
-			You will place your bets by clicking on the betting button increments. If you would like to reset your bets, please click on the 'reset button' and your bankroll will reset to $1000, and your current bet will $0. <br>Once you have placed your bets, click on the 'Deal Cards Button' and begin!
-			<br>
-			<h3>-----------------------------------------</h3>
+			<center>You will place your bets by clicking on the betting button increments. If you would like to reset your bets, please click on the 'reset button' and your bankroll will reset to $1000, and your current bet will $0. <br>Once you have placed your bets, click on the 'Deal Cards Button' and begin!</center>
+			<h3>----------------------------------------</h3>
 			<div> Bankroll: <div id="bankroll"> </div></div>
 			<h3>-----------------------------------------</h3>
+			Bet size:
 			<div id="betting-5" class="pointer betButton"><button type="button">Bet $5</button>
 				
 			</div>
@@ -41,8 +37,7 @@
 			<div> Current Bet:<div id="bets">
 			</div></div>
 			<h3>-----------------------------------------</h3>
-			<br>
-			<br>
+			
 			<div id="reset-game" class="pointer"><button type="button">Reset Bet!</button>
 				
 			</div>
@@ -56,10 +51,10 @@
 		<div> Dealer count: </div> <div id="dealer-total"></div>
 		<h3>-------------------------------------------</h3>
 		
-		<div id="hit-action" class="pointer"><button type="button">Hit Me!</button>
+		<div id="hit-action" class="pointer"><button type="button">Hit Me!</button></div>
 
+		<div id="stand-action" class="pointer"><button type="button">Stand</button></div>
 		<h3>-------------------------------------------</h3>
-
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="app.js"></script>
 		
