@@ -6,7 +6,7 @@ var theCount = 0;
 var countsP = 0;
 var countsD= 0;
 var players = [];
-	
+
 
 
 	function subtract(bet) {
@@ -16,16 +16,16 @@ var players = [];
 			alert( "Step your game up man...you are broke!");
 		} else {
 
-		
+
 		bankRoll = bankRoll - bet;
-		console.log(bankRoll); 
+		console.log(bankRoll);
 		$("#bankroll").text(bankRoll);
 
 		currentBet = currentBet + bet;
 		console.log(currentBet);
 		$("#bets").text(currentBet);
 
-		
+
 		}
 
 	}
@@ -55,14 +55,14 @@ var players = [];
 }
 
 
-//code dojo help for deck
+
     var myDeck = 0;
 
 	function deck(){
 		this.names = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 		this.suits = ['Spade','Heart','Club','Dimond'];
 		var deckOfCards = [];
-		//end of code dojo help
+
 		var cardValue = 0;
 		for( var s = 0; s < this.suits.length; s++ ){
 			for( var n = 0; n < this.names.length; n++){
@@ -87,12 +87,12 @@ var players = [];
 	}
 
 	myDeck = deck();
-	
+
 	function deal(){
  		return myDeck.shift();
 	}
 
-	
+
 
 	function Player(isDealer, playerName) {
 		this.hand = [];
@@ -150,18 +150,19 @@ var players = [];
 				this.totalValueDealer += this.hand[handi].value;
 			}
 			return this.totalValueDealer;
+			winner();
 		};
 
-	} 
+	}
 
-	//winner function
-	// function winner(){
-	// 	if(this.totalValue === 21){
-	// 		alert('Player Wins!');
-	// 	}else{
-	// 		alert('comp wins!');
-	// 	}
-	// } 
+
+	function winner(){
+		if(this.totalValue<= totalValueDealer){
+			alert('Player Wins!');
+		}else{
+			alert('comp wins!');
+		}
+	}
 
 	$( document ).ready(function() {
 
@@ -188,7 +189,7 @@ var players = [];
 				players["human"].addCard(deal());
 				players["dealer"].addCard(deal());
 			}
-			
+
 
 		});
 		$("#hit-action").click(function() {
@@ -198,5 +199,5 @@ var players = [];
 		$("#stand-action").click(function() {
 			players["dealer"].addCard(deal());
 		});
-		
+
     });
